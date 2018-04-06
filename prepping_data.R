@@ -88,8 +88,23 @@ for (i in 1:dim(call_all)[1]){
 
 call_all_mdi_ind <- cbind(call_all_mdi_ind, bhn_ind)
 
+## black mdi
+for (i in 1:dim(call_all)[1]){
+    black_ind[i] <- ifelse(call_all$RSSD9001[i] %in% call_mdi_black$RSSD9001, 1, 0)
+}
 
-### add mdi type by name to all data------
+call_all_mdi_ind <- cbind(call_all_mdi_ind, black_ind)
+
+## hispanic mdi
+for (i in 1:dim(call_all)[1]){
+    hispanic_ind[i] <- ifelse(call_all$RSSD9001[i] %in% call_mdi_hispanic$RSSD9001, 1, 0)
+}
+
+call_all_mdi_ind <- cbind(call_all_mdi_ind, hispanic_ind)
+
+
+
+### add mdi type by name to all data------------------------------------------------
 
 mdi_type <- ""
 
