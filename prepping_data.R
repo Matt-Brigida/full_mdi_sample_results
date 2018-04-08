@@ -112,13 +112,26 @@ for (i in 1:dim(call_all)[1]){
     mdi_type[i] <- if(call_all$RSSD9001[i] %in% call_mdi_asian$RSSD9001){
                        "MDI_Asian"
                    } else {
-                       if(call_all$RSSD9001[i] %in% call_mdi_bhn$RSSD9001){
-                           "MDI_Non_Asian"
+                       if(call_all$RSSD9001[i] %in% call_mdi_black$RSSD9001){
+                           "MDI_African_American"
                        } else {
-                           "Non-MDI"
+                           if(call_all$RSSD9001[i] %in% call_mdi_hispanic$RSSD9001){
+                               "MDI_Hispanic"
+                           } else {
+                               if(call_all$RSSD9001[i] %in% call_mdi_native$RSSD9001){
+                                   "MDI_Native_American"
+                               } else {
+                                   if(call_all$RSSD9001[i] %in% call_mdi_multi$RSSD9001){
+                                       "MDI_Multi"
+                                   } else {
+                                       "Non-MDI"
+                                   }
+                               }
+                           }
                        }
                    }
 }
+
 
 call_all_mdi_type <- cbind(call_all, mdi_type)
 saveRDS(call_all_mdi_type, "call_all_mdi_type.rds")
