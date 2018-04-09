@@ -52,6 +52,10 @@ ggplot(all_tagged_vars[all_tagged_vars$mdi_type %in% c("MDI_African_American", "
     geom_point(aes(color = mdi_type)) +
     geom_smooth(se = TRUE) 
 
+ggplot(all_tagged_vars[all_tagged_vars$mdi_type %in% c("MDI_African_American", "MDI_Hispanic", "MDI_Asian"), ], aes(EQTA0, CSBLTOT)) +
+    geom_point(aes(color = mdi_type)) +
+    geom_smooth(se = TRUE) 
+
 
 ## histogram on TE-----
 ggplot(all_tagged_vars[all_tagged_vars$mdi_type %in% c("MDI_African_American", "MDI_Hispanic"), ], aes(EQTA0, fill = mdi_type)) +
@@ -69,6 +73,7 @@ ggplot(all_tagged_vars[all_tagged_vars$mdi_type %in% c("MDI_African_American", "
     )
 dev.off()
 
+pdf("emp_dens_equity_aa_h_a.pdf")
 ggplot(all_tagged_vars[all_tagged_vars$mdi_type %in% c("MDI_African_American", "MDI_Hispanic", "MDI_Asian"), ], aes(EQTA0, fill = mdi_type)) +
     geom_density() +
         labs(
@@ -78,6 +83,7 @@ ggplot(all_tagged_vars[all_tagged_vars$mdi_type %in% c("MDI_African_American", "
     x = "Total Equity Divided by Total Assets",
     y = "Density"
   )
+dev.off()
 
 
 
