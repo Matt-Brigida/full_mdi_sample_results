@@ -52,9 +52,18 @@ ggplot(all_tagged_vars[all_tagged_vars$mdi_type %in% c("MDI_African_American", "
     geom_point(aes(color = mdi_type)) +
     geom_smooth(se = TRUE) 
 
-ggplot(all_tagged_vars[all_tagged_vars$mdi_type %in% c("MDI_African_American", "MDI_Hispanic", "MDI_Asian"), ], aes(EQTA0, CSBLTOT)) +
+pdf("loans_equity_aa_h.pdf")
+ggplot(all_tagged_vars[all_tagged_vars$mdi_type %in% c("MDI_African_American", "MDI_Hispanic"), ], aes(EQTA0, CSBLTOT)) +
     geom_point(aes(color = mdi_type)) +
-    geom_smooth(se = TRUE) 
+    geom_smooth(se = TRUE) +
+        labs(
+    title = "Small Business Loans and Total Equity",
+    subtitle = "By MDI Type",
+    caption = "Data from Fed/FDIC",
+    x = "Total Equity Divided by Total Assets",
+    y = "% Change in Small Business Loans"
+    )
+dev.off()
 
 
 ## histogram on TE-----
