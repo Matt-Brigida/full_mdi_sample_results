@@ -15,7 +15,7 @@ h_subset <- readRDS("../call_mdi_hispanic_pdata.rds")
 
 ## variables
 
-var <- c("CSBLTOT", "CNUMSBL", "SBLTOT_TA", "EQTA0", "ROA0", "NPA0", "LIQTA0", "CORETA0", "BCOMMITTAC0", "LNTA0", "BIGBANK", "BADBANK", "DENOVO")
+var <- c("CSBLTOT", "CNUMSBL", "SBLTOT", "SBLTOT_TA", "EQTA0", "ROA0", "NPA0", "LIQTA0", "CORETA0", "BCOMMITTAC0", "RCFD2170", "LNTA0", "BIGBANK", "BADBANK", "DENOVO")
 
 not_mdi_vars <- data.frame(not_mdi_subset[, var])
 
@@ -26,35 +26,35 @@ h_vars <- data.frame(h_subset[, var])
 
 ## create tables with stargazer
 
-stargazer(aa_vars, type = "html", title="Descriptive Statistics: African American MDIs", digits=3, out="aa_summary_statistics.htm", covariate.labels = c("% Change Amt. S. Bus. Loans", "% Change Num. S. Bus. Loans", "Loans", "Total Equity", "ROA", "NPLs", "Liquid Assets", "Core Deposits", "Committments", "ln(Total Assets)", "Large Bank", "Troubled Bank", "De Novo"))
+stargazer(aa_vars, type = "html", title="Descriptive Statistics: African American MDIs", digits=3, out="aa_summary_statistics.htm", covariate.labels = c("% Change Amt. S. Bus. Loans", "% Change Num. S. Bus. Loans", "Amt. Loans", "Loans/TA", "Total Equity", "ROA", "NPLs", "Liquid Assets", "Core Deposits", "Committments", "Total Assets", "ln(Total Assets)", "Large Bank", "Troubled Bank", "De Novo"))
 
 apply(aa_vars, 2, median)
 
- ##     CSBLTOT      CNUMSBL    SBLTOT_TA        EQTA0         ROA0         NPA0 
- ## 0.004838109 -0.038674033  0.219922663  0.086529718  0.003255115  0.040756535 
- ##      LIQTA0      CORETA0  BCOMMITTAC0        LNTA0      BIGBANK      BADBANK 
- ## 0.305870163  0.418691519  0.058160880 11.422289345  0.000000000  0.000000000 
- ##      DENOVO 
- ## 0.000000000 
+ ##      CSBLTOT       CNUMSBL        SBLTOT     SBLTOT_TA         EQTA0 
+ ## 4.838109e-03 -3.867403e-02  2.298000e+04  2.199227e-01  8.652972e-02 
+ ##         ROA0          NPA0        LIQTA0       CORETA0   BCOMMITTAC0 
+ ## 3.255115e-03  4.075653e-02  3.058702e-01  4.186915e-01  5.816088e-02 
+ ##     RCFD2170         LNTA0       BIGBANK       BADBANK        DENOVO 
+ ## 9.099700e+04  1.142229e+01  0.000000e+00  0.000000e+00  0.000000e+00 
 
-stargazer(h_vars, type = "html", title="Descriptive Statistics: Hispanic MDIs", digits=3, out="h_summary_statistics.htm", covariate.labels = c("% Change Amt. S. Bus. Loans", "% Change Num. S. Bus. Loans", "Loans", "Total Equity", "ROA", "NPLs", "Liquid Assets", "Core Deposits", "Committments", "ln(Total Assets)", "Large Bank", "Troubled Bank", "De Novo"))
+stargazer(h_vars, type = "html", title="Descriptive Statistics: Hispanic MDIs", digits=3, out="h_summary_statistics.htm", covariate.labels = c("% Change Amt. S. Bus. Loans", "% Change Num. S. Bus. Loans", "Amt. Loans", "Loans/TA", "Total Equity", "ROA", "NPLs", "Liquid Assets", "Core Deposits", "Committments",  "Total Assets", "ln(Total Assets)", "Large Bank", "Troubled Bank", "De Novo"))
 
 apply(h_vars, 2, median)
 
- ##     CSBLTOT      CNUMSBL    SBLTOT_TA        EQTA0         ROA0         NPA0 
- ## 0.000000000 -0.038277512  0.120252062  0.100228673  0.006820809  0.021812998 
- ##      LIQTA0      CORETA0  BCOMMITTAC0        LNTA0      BIGBANK      BADBANK 
- ## 0.314726066  0.333666722  0.055000992 12.292089778  0.000000000  0.000000000 
- ##      DENOVO 
- ## 0.000000000 
+ ##     CSBLTOT       CNUMSBL        SBLTOT     SBLTOT_TA         EQTA0 
+ ## 0.000000e+00 -3.827751e-02  3.435700e+04  1.202521e-01  1.002287e-01 
+ ##         ROA0          NPA0        LIQTA0       CORETA0   BCOMMITTAC0 
+ ## 6.820809e-03  2.181300e-02  3.147261e-01  3.336667e-01  5.500099e-02 
+ ##     RCFD2170         LNTA0       BIGBANK       BADBANK        DENOVO 
+ ## 2.269520e+05  1.229209e+01  0.000000e+00  0.000000e+00  0.000000e+00 
 
-stargazer(not_mdi_vars, type = "html", title="Descriptive Statistics: Non-MDIs", digits=3, out="not_mdi_vars_summary_statistics.htm", covariate.labels = c("% Change Amt. S. Bus. Loans", "% Change Num. S. Bus. Loans", "Loans", "Total Equity", "ROA", "NPLs", "Liquid Assets", "Core Deposits", "Committments", "ln(Total Assets)", "Large Bank", "Troubled Bank", "De Novo"))
+stargazer(not_mdi_vars, type = "html", title="Descriptive Statistics: Non-MDIs", digits=3, out="not_mdi_vars_summary_statistics.htm", covariate.labels = c("% Change Amt. S. Bus. Loans", "% Change Num. S. Bus. Loans", "Amt. Loans", "Loans/TA", "Total Equity", "ROA", "NPLs", "Liquid Assets", "Core Deposits", "Committments",  "Total Assets", "ln(Total Assets)", "Large Bank", "Troubled Bank", "De Novo"))
 
 apply(not_mdi_vars, 2, median)
 
- ##     CSBLTOT      CNUMSBL    SBLTOT_TA        EQTA0         ROA0         NPA0 
- ## 0.024126133 -0.007462687  0.149401827  0.100019688  0.009408143  0.014192974 
- ##      LIQTA0      CORETA0  BCOMMITTAC0        LNTA0      BIGBANK      BADBANK 
- ## 0.296709684  0.464564176  0.062569106 11.736780763  0.000000000  0.000000000 
- ##      DENOVO 
- ## 0.000000000 
+ ##      CSBLTOT       CNUMSBL        SBLTOT     SBLTOT_TA         EQTA0 
+ ## 2.412613e-02 -7.462687e-03  2.212400e+04  1.494018e-01  1.000197e-01 
+ ##         ROA0          NPA0        LIQTA0       CORETA0   BCOMMITTAC0 
+ ## 9.408143e-03  1.419297e-02  2.967097e-01  4.645642e-01  6.256911e-02 
+ ##     RCFD2170         LNTA0       BIGBANK       BADBANK        DENOVO 
+ ## 1.337200e+05  1.173678e+01  0.000000e+00  0.000000e+00  0.000000e+00 
