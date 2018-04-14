@@ -58,3 +58,27 @@ apply(not_mdi_vars, 2, median)
  ## 9.408143e-03  1.419297e-02  2.967097e-01  4.645642e-01  6.256911e-02 
  ##     RCFD2170         LNTA0       BIGBANK       BADBANK        DENOVO 
  ## 1.337200e+05  1.173678e+01  0.000000e+00  0.000000e+00  0.000000e+00 
+
+
+### get NUMSBL summary stats
+
+## non-MDI
+median(not_mdi_subset$NUMSBL, na.rm = T)
+mean(not_mdi_subset$NUMSBL, na.rm = T)
+sd(not_mdi_subset$NUMSBL, na.rm = T)
+min(not_mdi_subset$NUMSBL, na.rm = T)
+max(not_mdi_subset$NUMSBL, na.rm = T)
+
+## AA
+median(aa_subset$NUMSBL, na.rm = T)
+mean(aa_subset$NUMSBL, na.rm = T)
+sd(aa_subset$NUMSBL, na.rm = T)
+min(aa_subset$NUMSBL, na.rm = T)
+max(aa_subset$NUMSBL, na.rm = T)
+
+## H
+median(h_subset$NUMSBL, na.rm = T)
+mean(h_subset$NUMSBL, na.rm = T)
+sd(h_subset$NUMSBL, na.rm = T)
+min(h_subset$NUMSBL, na.rm = T)
+max(h_subset$NUMSBL, na.rm = T)

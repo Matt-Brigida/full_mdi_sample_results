@@ -27,6 +27,10 @@ h_vars <- data.frame(h_subset[, var])
 
 all_tagged_vars <- data.frame(tagged_set[, c(var, "mdi_type")])
 
+all_tagged_vars$mdi_type <- gsub("MDI_", "", all_tagged_vars$mdi_type)
+
+names(all_tagged_vars)[14] <- "MDI Type"
+
 ###
 
 not_mdi_vars$BIGBANK <- ifelse(not_mdi_vars$BIGBANK == 1, "Bigbank", "Smallbank")
@@ -71,10 +75,10 @@ ggplot(all_tagged_vars[all_tagged_vars$mdi_type %in% c("MDI_African_American", "
     geom_histogram()
 
 pdf("emp_dens_equity_aa_h.pdf")
-ggplot(all_tagged_vars[all_tagged_vars$mdi_type %in% c("MDI_African_American", "MDI_Hispanic"), ], aes(EQTA0, fill = mdi_type)) +
+ggplot(all_tagged_vars[all_tagged_vars$`MDI Type` %in% c("African_American", "Hispanic"), ], aes(EQTA0, fill = `MDI Type`)) +
     geom_density() +
     labs(
-    title = "Empirical Densith Plot of Total Equity Divided by Total Assets",
+    title = "Empirical Density Plot of Total Equity Divided by Total Assets",
     subtitle = "By MDI Type",
     caption = "Data from Fed/FDIC",
     x = "Total Equity Divided by Total Assets",
@@ -82,8 +86,22 @@ ggplot(all_tagged_vars[all_tagged_vars$mdi_type %in% c("MDI_African_American", "
     )
 dev.off()
 
+
+pdf("emp_dens_equity_aa_h_not.pdf")
+ggplot(all_tagged_vars[all_tagged_vars$`MDI Type` %in% c("African_American", "Hispanic", "Non-MDI"), ], aes(EQTA0, fill = `MDI Type`)) +
+    geom_density() +
+    labs(
+    title = "Empirical Density Plot of Total Equity Divided by Total Assets",
+    subtitle = "By MDI Type",
+    caption = "Data from Fed/FDIC",
+    x = "Total Equity Divided by Total Assets",
+    y = "Density"
+    )
+dev.off()
+
+
 pdf("emp_dens_equity_aa_h_a.pdf")
-ggplot(all_tagged_vars[all_tagged_vars$mdi_type %in% c("MDI_African_American", "MDI_Hispanic", "MDI_Asian"), ], aes(EQTA0, fill = mdi_type)) +
+ggplot(all_tagged_vars[all_tagged_vars$`MDI Type` %in% c("African_American", "Hispanic", "Asian"), ], aes(EQTA0, fill = `MDI Type`)) +
     geom_density() +
         labs(
     title = "Empirical Densith Plot of Total Equity Divided by Total Assets",
@@ -95,5 +113,15 @@ ggplot(all_tagged_vars[all_tagged_vars$mdi_type %in% c("MDI_African_American", "
 dev.off()
 
 
+### fills by type
+
+ggplot(all_tagged_vars[all_tagged_vars$`MDI Type` %in% c("African_American", "Hispanic"), ], aes(ROA0, fill = `MDI Type`)) +
+    geom_histogram() +
+        labs(
+    title = "",
+    subtitle = "",
+    caption = "Data from FDIC",
+    x = ""
+    )
 
 
