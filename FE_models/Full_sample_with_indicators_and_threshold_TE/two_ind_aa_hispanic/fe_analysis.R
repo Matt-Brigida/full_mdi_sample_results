@@ -25,7 +25,7 @@ fe5 <- plm(CSBLTOT ~  te_thresh + BADBANK + BADBKFC + BADBKPC + black_ind*EQTA0 
 
 ## Output three models (tables 3, 4, 5) to word via html-----
 
-stargazer(fe3, fe4, fe5, covariate.labels = c("Large Bank", "Large Bank x Fin. Crisis", "Large Bank x Post Crisis", "Troubled Bank", "Troubled Bank x Fin. Crisis", "Troubled Bank x Post Crisis", "Loans", "Total Equity", "ROA", "NPLs", "Liquid Assets", "Core Deposits", "Committments", "De Novo", "Total Equity x AA Ind.", "Total Equity x His. Ind."), dep.var.labels = "Annual % Change in the Amount of Small-Business Loans Outstanding", digits = 3, no.space=TRUE, header=FALSE, type='html', omit.stat=c("LL"), title = "African American and Hispanic Indicators: Annual % Change in the Amount of Small-Business Loans Outstanding.  20% Threshold TE indicator", out = "tables345_20thres.htm", intercept.bottom = TRUE, notes = "")
+stargazer(fe3, fe4, fe5, dep.var.labels = "Annual % Change in the Amount of Small-Business Loans Outstanding", digits = 3, no.space=TRUE, header=FALSE, type='html', omit.stat=c("LL"), title = "African American and Hispanic Indicators: Annual % Change in the Amount of Small-Business Loans Outstanding.  20% Threshold TE indicator", out = "tables345_20thres.htm", intercept.bottom = TRUE, notes = "")
 
 
 #### Number of Small-Business Loans------
@@ -43,7 +43,7 @@ fe8 <- plm(CNUMSBL ~  te_thresh + BADBANK + BADBKFC + BADBKPC + black_ind*EQTA0 
 
 ## Output three models (tables 6, 7, 8) to word via html-----
 
-stargazer(fe6, fe7, fe8, covariate.labels = c("Large Bank", "Large Bank x Fin. Crisis", "Large Bank x Post Crisis", "Troubled Bank", "Troubled Bank x Fin. Crisis", "Troubled Bank x Post Crisis", "Loans", "Total Equity", "ROA", "NPLs", "Liquid Assets", "Core Deposits", "Committments", "De Novo", "Total Equity x AA Ind.", "Total Equity x His. Ind."), dep.var.labels = "Annual % Change in the Number of Small-Business Loans Outstanding", digits = 3, no.space=TRUE, header=FALSE, type='html', omit.stat=c("LL"), title = "African American and Hispanic Indicators: Annual % Change in the Number of Small-Business Loans Outstanding.  20% TE Threshold", out = "tables678_20thresh.htm", intercept.bottom = TRUE, notes = "")
+stargazer(fe6, fe7, fe8, dep.var.labels = "Annual % Change in the Number of Small-Business Loans Outstanding", digits = 3, no.space=TRUE, header=FALSE, type='html', omit.stat=c("LL"), title = "African American and Hispanic Indicators: Annual % Change in the Number of Small-Business Loans Outstanding.  20% TE Threshold", out = "tables678_20thresh.htm", intercept.bottom = TRUE, notes = "")
 
 
 ## analyze effect of firm size----
