@@ -7,7 +7,7 @@ call_all <- readRDS("../../../call_all_mdi_ind_pdata.rds")
 
 call_all_greater_thresh <- call_all[call_all$EQTA0 > .2, ]
 
-call_all$te_thresh <- ifelse(call_all$EQTA0 > .2, 1, 0)
+call_all$te_thresh <- ifelse(call_all$EQTA0 > .2, 1, 0) * call_all$EQTA0
 
 #### Amount of Small-Business Loans
 
